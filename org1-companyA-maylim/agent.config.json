@@ -1,0 +1,16 @@
+{
+  "id": "agent:org1:maylim",
+  "name": "MayLim Procurement Agent",
+  "protocol": "a2a",
+  "server": {
+    "type": "http",
+    "host": "127.0.0.1",
+    "port": 8101,
+    "base_path": "/a2a"
+  },
+  "capabilities": [
+    "negotiate_price",
+    "inventory_lookup"
+  ]
+}
+

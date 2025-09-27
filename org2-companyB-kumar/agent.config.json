@@ -1,0 +1,16 @@
+{
+  "id": "agent:org2:kumar",
+  "name": "Kumar Sales Agent",
+  "protocol": "a2a",
+  "server": {
+    "type": "http",
+    "host": "127.0.0.1",
+    "port": 8102,
+    "base_path": "/a2a"
+  },
+  "capabilities": [
+    "negotiate_price",
+    "pricing_lookup"
+  ]
+}
+

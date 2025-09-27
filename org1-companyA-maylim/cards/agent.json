@@ -1,0 +1,12 @@
+{
+  "id": "agent:org1:maylim",
+  "name": "MayLim Procurement Agent",
+  "organization": "org1-companyA",
+  "endpoint": "http://127.0.0.1:8101",
+  "capabilities": [
+    "negotiate_price",
+    "inventory_lookup"
+  ],
+  "protocol": "a2a-http"
+}
+

@@ -1,0 +1,12 @@
+{
+  "id": "agent:org2:kumar",
+  "name": "Kumar Sales Agent",
+  "organization": "org2-companyB",
+  "endpoint": "http://127.0.0.1:8102",
+  "capabilities": [
+    "negotiate_price",
+    "pricing_lookup"
+  ],
+  "protocol": "a2a-http"
+}
+
