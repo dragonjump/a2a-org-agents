@@ -1,13 +1,14 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 
 from pydantic import BaseModel, Field
 
 
 class Part(BaseModel):
     type: str
-    data: Dict[str, Any] | str
+    # data: Dict[str, Any] | str 
+    data: Union[Dict[str, Any], str]
 
 
 class Message(BaseModel):

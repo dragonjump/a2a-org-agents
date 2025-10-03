@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 import json
 import logging
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -19,7 +19,8 @@ DATA_PATH = Path(__file__).resolve().parents[1] / "data" / "companyA_inventory.c
 
 class Part(BaseModel):
     type: str
-    data: Dict[str, Any] | str
+    # data: Dict[str, Any] | str 
+    data: Union[Dict[str, Any], str]
 
 
 class Message(BaseModel):

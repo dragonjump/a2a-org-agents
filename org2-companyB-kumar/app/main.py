@@ -3,7 +3,7 @@ from __future__ import annotations
 import csv
 from pathlib import Path
 import json
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -19,8 +19,8 @@ DATA_PATH = Path(__file__).resolve().parents[1] / "data" / "companyB_pricing.csv
 
 class Part(BaseModel):
     type: str
-    data: Dict[str, Any] | str
-
+    # data: Dict[str, Any] | str 
+    data: Union[Dict[str, Any], str]
 
 class Message(BaseModel):
     role: str

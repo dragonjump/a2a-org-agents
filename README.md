@@ -1,10 +1,11 @@
 ## A2A Simple - Org0 Broker with Org1/Org2 Agents
 
 This repo runs three services for a simple Agent2Agent-style negotiation:
-- `org1-companyA-maylim` (buyer)
+- `org1-companyA-maylim` (buyer) 
 - `org2-companyB-kumar` (seller)
 - `org0-broker` (broker/orchestrator)
 
+You are in org0.
 Optionally, a Vite React frontend visualizes the transcript from `org0-broker`.
 
 ### Prerequisites
@@ -15,9 +16,10 @@ Optionally, a Vite React frontend visualizes the transcript from `org0-broker`.
 ### Quick Start (recommended)
 Open four PowerShell windows and run the following from the repo root:
 ```
+ 
 
 
-   kill -9 $(  lsof -t -i:8102)
+kill -9 $(  lsof -t -i:8102)
 netstat -ano | findstr :8102
 taskkill /PID <PID> /F
 
@@ -35,6 +37,15 @@ cd org1-companyA-maylim
 python -m venv .venv; .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 uvicorn app.main:app --host 127.0.0.1 --port 8101
+
+cd org1-companyA-maylim
+python3 -m venv .venv
+source .venv/bin/activate
+pip3 install -r requirements.txt
+uvicorn app.main:app --host 127.0.0.1 --port 8101
+
+
+
 ```
 
 Start Org2 (Kumar):
@@ -43,6 +54,13 @@ cd org2-companyB-kumar
 python -m venv .venv; .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 uvicorn app.main:app --host 127.0.0.1 --port 8102
+
+cd org2-companyB-kumar
+python3 -m venv .venv
+source .venv/bin/activate
+pip3 install -r requirements.txt 
+uvicorn app.main:app --host 127.0.0.1 --port 8102
+
 ```
 
 Start Org0 (Broker):
@@ -52,6 +70,13 @@ python -m venv .venv; .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 $env:ORG1_URL='http://127.0.0.1:8101'
 $env:ORG2_URL='http://127.0.0.1:8102'
+uvicorn app.main:app --host 127.0.0.1 --port 8001
+
+
+cd org0-broker
+python3 -m venv .venv
+source .venv/bin/activate
+pip3 install -r requirements.txt
 uvicorn app.main:app --host 127.0.0.1 --port 8001
 ```
 
